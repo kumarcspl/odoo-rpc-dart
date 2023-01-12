@@ -63,50 +63,50 @@ http_testing.MockClientHandler getFakeRequestHandler(final int code) {
 }
 
 const OdooSession initialSession = OdooSession(
-  id: 'random-session-hash',
-  userId: 2,
-  partnerId: 3,
-  companyId: 1,
-  userLogin: 'admin',
-  userName: 'Mitchel Admin',
-  userLang: 'en_US',
-  userTz: 'Europe/Brussels',
-  isSystem: true,
-  dbName: 'odoo',
-  serverVersion: '13',
-);
+    id: 'random-session-hash',
+    userId: 2,
+    partnerId: 3,
+    companyId: 1,
+    userLogin: 'admin',
+    userName: 'Mitchel Admin',
+    userLang: 'en_US',
+    userTz: 'Europe/Brussels',
+    isSystem: true,
+    dbName: 'odoo',
+    serverVersion: '13',
+    team: false);
 
 void main() {
   group('Helpers', () {
     test('Test ServerVersionInt', () {
       expect(initialSession.serverVersionInt, equals(13));
       const saasSession = OdooSession(
-        id: 'random-session-hash',
-        userId: 2,
-        partnerId: 3,
-        companyId: 1,
-        userLogin: 'admin',
-        userName: 'Mitchel Admin',
-        userLang: 'en_US',
-        userTz: 'Europe/Brussels',
-        isSystem: true,
-        dbName: 'odoo',
-        serverVersion: 'saas~15',
-      );
+          id: 'random-session-hash',
+          userId: 2,
+          partnerId: 3,
+          companyId: 1,
+          userLogin: 'admin',
+          userName: 'Mitchel Admin',
+          userLang: 'en_US',
+          userTz: 'Europe/Brussels',
+          isSystem: true,
+          dbName: 'odoo',
+          serverVersion: 'saas~15',
+          team: false);
       expect(saasSession.serverVersionInt, equals(15));
       const openerpSession = OdooSession(
-        id: 'random-session-hash',
-        userId: 2,
-        partnerId: 3,
-        companyId: 1,
-        userLogin: 'admin',
-        userName: 'Mitchel Admin',
-        userLang: 'en_US',
-        userTz: 'Europe/Brussels',
-        isSystem: true,
-        dbName: 'odoo',
-        serverVersion: '8',
-      );
+          id: 'random-session-hash',
+          userId: 2,
+          partnerId: 3,
+          companyId: 1,
+          userLogin: 'admin',
+          userName: 'Mitchel Admin',
+          userLang: 'en_US',
+          userTz: 'Europe/Brussels',
+          isSystem: true,
+          dbName: 'odoo',
+          serverVersion: '8',
+          team: false);
       expect(openerpSession.serverVersionInt, equals(8));
     });
   });

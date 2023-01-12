@@ -35,6 +35,9 @@ class OdooSession {
   /// Server Major version
   final String serverVersion;
 
+  // team mode
+  final bool team;
+
   /// [OdooSession] is immutable.
   const OdooSession({
     required this.id,
@@ -48,6 +51,7 @@ class OdooSession {
     required this.isSystem,
     required this.dbName,
     required this.serverVersion,
+    required this.team
   });
 
   /// Creates [OdooSession] instance from odoo session info object.
@@ -70,6 +74,7 @@ class OdooSession {
       isSystem: info['is_system'] as bool,
       dbName: info['db'] as String,
       serverVersion: versionInfo[0].toString(),
+      team: info['team'] as bool,
     );
   }
 
@@ -104,6 +109,7 @@ class OdooSession {
       isSystem: json['isSystem'] as bool,
       dbName: json['dbName'] as String,
       serverVersion: json['serverVersion'].toString(),
+      team: json['team'] as bool,
     );
   }
 
@@ -121,6 +127,7 @@ class OdooSession {
       isSystem: newSessionId == '' ? false : isSystem,
       dbName: newSessionId == '' ? '' : dbName,
       serverVersion: newSessionId == '' ? '' : serverVersion,
+      team: newSessionId == '' ?false:team,
     );
   }
 
